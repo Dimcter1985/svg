@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    svg {
+      width: 200px;
+      height: 200px;
+      border: 1px black solid;
+    }
+
+    .rect, circle, ellipse, polygon {
+      fill: brown;/* заливка */
+      stroke: darkblue;/* граница */
+      fill-opacity: 0.6;/* прозрачность заливки */
+      stroke-opacity: 0.6;/* прозрачность границы */
+      stroke-width: 8;/* толщина границы */
+    }
+
+    line, polyline {
+      stroke: darkblue;
+      stroke-width: 4;
+      fill: transparent;
+    }
+
+    text {
+      fill: violet;
+      stroke: slategray;
+      font-size: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <svg id="aaa"><!-- контейнер для svg графики -->
+    <rect class="rect" x="20" y="20" rx="5" ry="5" width="50" height="50"></rect><!-- прямоугольник (x,y - отступ от верхний левый угол; rx,ry - радиус скругления углов)-->
+  </svg>
+
+  <svg><!-- контейнер для svg графики -->
+    <circle cx="100" cy="100" r="50"></circle><!-- окружность (cx,cy-координаты центра окружности; r-радиус-->
+  </svg>
+
+  <svg><!-- контейнер для svg графики -->
+    <ellipse cx="100" cy="100" rx="80" ry="50"></ellipse><!-- окружность (cx,cy-координаты центра окружности; rx,ry-плечо скругления-->
+  </svg>
+
+  <svg><!-- контейнер для svg графики -->
+    <line x1="10" y1="10" x2="150" y2="150"></line><!-- линия (x1,y1-начало; х2,y2-конец)-->
+  </svg>
+  
+  <svg><!-- контейнер для svg графики -->
+    <polyline points="10,10 150,10 150,150 50,150"></polyline><!--полилиния(points-координаты точек)-->
+  </svg>
+
+  <svg><!-- контейнер для svg графики -->
+    <polygon points="10,10 150,10 150,150 50,150"></polygon><!--полигон(points-координаты точек)-->
+  </svg>
+
+  <svg viewBox="0 0 400 400"><!-- контейнер для svg графики -->
+    <!-- viewBox-позволяет втиснуть элемент в заданный контейнер -->
+    <g><!--группировка связанных элементов-->
+      <text x="10" y="50">loft</text><!--текст(x,y-левая нижняя точка первой буквы)-->
+      <text x="10" y="80">loft</text><!--текст(x,y-левая нижняя точка первой буквы)-->
+      <text x="10" y="110">loft</text><!--текст(x,y-левая нижняя точка первой буквы)-->
+    </g>
+    <use x="100" y="150" xlink:href="#aaa"></use><!--переиспользование элементов(xlink:href="#aaa"-ссылка на элемент)-->
+  </svg>
+
+  <svg><!-- контейнер для svg графики -->
+    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="100%"><!--градиент(x,y-конец иначало градиента)-->
+      <stop offset="0%" stop-color="blue"></stop>
+      <stop offset="100%" stop-color="green"></stop>
+    </linearGradient>
+    <rect class="grad" x="20" y="20" rx="5" ry="5" width="50" height="50" fill="url(#grad)"></rect><!-- прямоугольник (x,y - отступ от верхний левый угол; rx,ry - радиус скругления углов)-->
+  </svg>
+  
+  <svg><!-- контейнер для svg графики -->
+    <path></path><!--сложная фигура или контур-->
+  </svg>
+</body>
+</html>
